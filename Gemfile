@@ -30,5 +30,6 @@
  gem 'turbolinks'
  # bootstrap-sass
  gem 'bootstrap-sass'
+ gem 'pry-rails'
 
 
