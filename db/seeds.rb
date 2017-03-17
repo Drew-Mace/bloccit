@@ -21,6 +21,12 @@
    )
  end
  
+ Post.find_or_create_by(title: "Dont repeat me", body: "dont touch my body")
+ Comment.find_or_create_by(body: "this be the comment text")
+  
+ 
+ 
+ 
  puts "Seed finished"
  puts "#{Post.count} posts created"
  puts "#{Comment.count} comments created"
