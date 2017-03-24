@@ -21,6 +21,16 @@
    )
  end
  
+ 5.times do
+ # #1
+   Question.create!(
+ # #2
+     title:  RandomData.random_sentence,
+     body:   RandomData.random_paragraph,
+     resolved: false
+   )
+ end
+ 
  Post.find_or_create_by(title: "Dont repeat me", body: "dont touch my body")
  Comment.find_or_create_by(body: "this be the comment text")
   
@@ -30,3 +40,4 @@
  puts "Seed finished"
  puts "#{Post.count} posts created"
  puts "#{Comment.count} comments created"
+ puts "#{Question.count} questions created"
