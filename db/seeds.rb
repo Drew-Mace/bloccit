@@ -41,6 +41,17 @@
    )
  end
  
+ 5.times do
+ # #1
+   SponsoredPost.create!(
+ # #2
+     topic: topics.sample,
+     title:  RandomData.random_sentence,
+     body:   RandomData.random_paragraph,
+     price: 99
+   )
+ end
+ 
  Post.find_or_create_by(title: "Dont repeat me", body: "dont touch my body")
  Comment.find_or_create_by(body: "this be the comment text")
   
@@ -49,6 +60,7 @@
  
  puts "Seed finished"
  puts "#{Topic.count} topics created"
+ puts "#{SponsoredPost.count} posts created"
  puts "#{Post.count} posts created"
  puts "#{Comment.count} comments created"
  puts "#{Question.count} questions created"
