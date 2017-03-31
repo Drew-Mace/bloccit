@@ -34,6 +34,11 @@ RSpec.describe User, type: :model do
     it "should be an invalid user due to blank email" do
       expect(user_with_invalid_email).to_not be_valid
     end
+    it "should format the users name" do
+      user.name = "drew mace"
+      user.save
+      expect(user.name).to eq "Drew Mace"
+    end
   end
 end
   
