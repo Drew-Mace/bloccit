@@ -29,7 +29,7 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
   end
   
-    def update
+   def update
       @topic = Topic.find(params[:id])
  
       @topic.name = params[:topic][:name]
@@ -44,6 +44,7 @@ class TopicsController < ApplicationController
        render :edit
      end
    end
+     
    
    def destroy
      @topic = Topic.find(params[:id])
