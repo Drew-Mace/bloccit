@@ -23,10 +23,6 @@ class PostsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @post = Post.new
   end
-
-  def new
-    @post = Post.new
-  end
   
    def destroy
      @post = Post.find(params[:id])
