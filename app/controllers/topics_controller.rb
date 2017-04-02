@@ -1,4 +1,18 @@
 class TopicsController < ApplicationController
+  def create 
+    @topic = Topic.new
+    @topic.name = params[:topic][:name]
+    @topic.description = params[:topic][:description]
+    @topic.public = params[:topic][:public]
+ 
+    if @topic.save
+      redirect_to @topic, notice: "Topic was saved successfully."
+    else
+      flash.now[:alert] = "Error creating topic. Please try again."
+      render :new
+    end
+  end
+  
   def index
     @topics = Topic.all
   end
@@ -11,27 +25,12 @@ class TopicsController < ApplicationController
     @topic = Topic.new
   end
   
-  def create 
-    @topic = Topic.new
-    @topic.name = params[:topic][:name]
-    @topic.description = params[:topic][:description]
-    @topic.public = params[:topic][:public]
- 
-    if @topic.submit
-      redirect_to @topic, notice: "Topic was saved successfully."
-    else
-      flash.now[:alert] = "Error creating topic. Please try again."
-      render :new
-    end
-  end
-  
   def edit
     @topic = Topic.find(params[:id])
   end
   
    def update
       @topic = Topic.find(params[:id])
- 
       @topic.name = params[:topic][:name]
       @topic.description = params[:topic][:description]
       @topic.public = params[:topic][:public]
