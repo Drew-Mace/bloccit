@@ -23,14 +23,12 @@ RSpec.describe PostsController, type: :controller do
       describe "DELETE destroy" do
      it "deletes the post" do
        delete :destroy, topic_id: my_topic.id, id: my_post.id
- # #6
        count = Post.where({id: my_post.id}).size
        expect(count).to eq 0
      end
  
      it "redirects to topic show" do
        delete :destroy, {id: my_post.id}
- # #7
        expect(response).to redirect_to my_topic
      end
    end
@@ -42,7 +40,6 @@ RSpec.describe PostsController, type: :controller do
  
        put :update, topic_id: my_topic.id, id: my_post.id, post: {title: new_title, body: new_body}
  
- # #3
        updated_post = assigns(:post)
        expect(updated_post.id).to eq my_post.id
        expect(updated_post.title).to eq new_title
@@ -53,7 +50,6 @@ RSpec.describe PostsController, type: :controller do
        new_title = RandomData.random_sentence
        new_body = RandomData.random_paragraph
  
- # #4
        put :update, topic_id: my_topic.id, id: my_post.id, post: {title: new_title, body: new_body}
        expect(response).to redirect_to [my_topic, my_post]
      end
@@ -102,11 +98,9 @@ RSpec.describe PostsController, type: :controller do
  
      it "renders the #edit view" do
        get :edit, topic_id: my_topic.id, id: my_post.id
- # #1
        expect(response).to render_template :edit
      end
  
- # #2
      it "assigns post to be updated to @post" do
        get :edit, topic_id: my_topic.id, id: my_post.id
  
