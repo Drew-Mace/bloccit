@@ -33,5 +33,4 @@
  gem 'bootstrap-sass'
  gem 'pry-rails'
  gem 'bcrypt'
- gem 'byebug'
 
