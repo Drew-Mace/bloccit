@@ -58,9 +58,16 @@
  Post.find_or_create_by(title: "Dont repeat me", body: "dont touch my body")
  Comment.find_or_create_by(body: "this be the comment text")
  
- user = User.first
- user.update_attributes!(
-   email: 'dremac1@live.com',
+  admin = User.create!(
+   name:     'Admin User',
+   email:    'admin@example.com',
+   password: 'helloworld',
+   role:     'admin'
+ )
+ 
+ member = User.create!(
+   name:     'Member User',
+   email:    'member@example.com',
    password: 'helloworld'
  )
  

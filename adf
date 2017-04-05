@@ -1,0 +1,24 @@
+
+[1mFrom:[0m /usr/local/rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/psych/core_ext.rb @ line 2:
+[1mClass[0m [1mname:[0m Object[1m
+Number of monkeypatches: [0m20. Use the `-a` option to display all available monkeypatches
+[1mNumber of lines:[0m 18
+
+[32mclass[0m [1;35;4mObject[0m
+  [32mdef[0m [1;36mself[0m.[1;34myaml_tag[0m url
+    [1;34;4mPsych[0m.add_tag(url, [1;36mself[0m)
+  [32mend[0m
+
+  [1;34m# FIXME: rename this to "to_yaml" when syck is removed[0m
+
+  [1;34m###[0m
+  [1;34m# call-seq: to_yaml(options = {})[0m
+  [1;34m#[0m
+  [1;34m# Convert an object to YAML.  See Psych.dump for more information on the[0m
+  [1;34m# available +options+.[0m
+  [32mdef[0m [1;34mpsych_to_yaml[0m options = {}
+    [1;34;4mPsych[0m.dump [1;36mself[0m, options
+  [32mend[0m
+  remove_method [33m:to_yaml[0m [32mrescue[0m [1;36mnil[0m
+  [32malias[0m [33m:to_yaml[0m [33m:psych_to_yaml[0m
+[32mend[0m

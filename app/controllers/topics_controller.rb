@@ -1,4 +1,7 @@
 class TopicsController < ApplicationController
+  before_action :require_sign_in, expect: [:index, :show]
+  before_action :authorize_user, expect: [:index, :show]
+  
   def create 
     @topic = Topic.new(topic_params)    
     
@@ -53,8 +56,14 @@ class TopicsController < ApplicationController
    end
    
    private
-   
    def topic_params
      params.require(:topic).permit(:name, :description, :public)
+   end
+   
+   def authorize_user
+     unless current_user.admin?
+       flash[:alert] = "You must be an admin to do that."
+       redirect_to topics_path
+     end
    end
 end
