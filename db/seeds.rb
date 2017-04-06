@@ -71,6 +71,13 @@
    password: 'helloworld'
  )
  
+ moderator = User.create!(
+   name:      'Mod user',
+   email:     'mod@example.com',
+   password:  'helloworld',
+   role:      'moderator'
+  )
+ 
   
  
  
