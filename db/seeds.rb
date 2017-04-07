@@ -59,23 +59,23 @@
  Comment.find_or_create_by(body: "this be the comment text")
  
   admin = User.create!(
-   name:     'Admin User',
-   email:    'admin@example.com',
+   name: 'Admin User',
+   email: 'admin@example.com',
    password: 'helloworld',
-   role:     'admin'
+   role: 'admin'
  )
  
  member = User.create!(
-   name:     'Member User',
-   email:    'member@example.com',
+   name: 'Member User',
+   email: 'member@example.com',
    password: 'helloworld'
  )
  
  moderator = User.create!(
-   name:      'Mod user',
-   email:     'mod@example.com',
-   password:  'helloworld',
-   role:      'moderator'
+   name: 'Mod user',
+   email: 'mod@example.com',
+   password: 'helloworld',
+   role: 'moderator'
   )
  
   
