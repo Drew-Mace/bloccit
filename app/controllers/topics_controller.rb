@@ -41,7 +41,6 @@ class TopicsController < ApplicationController
        render :edit
      end
    end
-     
    
    def destroy
      @topic = Topic.find(params[:id])
@@ -60,19 +59,11 @@ class TopicsController < ApplicationController
      params.require(:topic).permit(:name, :description, :public)
    end
    
-   def user_permissions
-     current_user == post.user || current_user.admin? || current_user.moderator?
-   end
-   
    def authorize_user
-     unless user_permissions
+     unless current_user.admin?
        flash[:alert] = "You must be an admin to do that."
        redirect_to topics_path
      end
    end
 end
-     
    
-   
- 
-     
