@@ -33,4 +33,4 @@
  gem 'bootstrap-sass'
  gem 'pry-rails'
  gem 'bcrypt'
-
+ gem 'figaro', '1.0'
