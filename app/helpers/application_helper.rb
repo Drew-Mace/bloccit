@@ -11,5 +11,16 @@ module ApplicationHelper
     
     "http://gravatar.com/avatar/#{gravatar_id}.png?s=48"
   end
+  
+  def no_posts_yet(user)
+    @user.posts.empty?
+  end
+  
+  def no_comments_yet(user)
+    @user.comments.empty?
+  end
+  
+  def no_favorites_yet(user)
+    @user.favorites.empty?
+  end
 end
-   
